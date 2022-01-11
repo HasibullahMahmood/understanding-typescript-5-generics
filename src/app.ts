@@ -32,3 +32,10 @@ const countAndDescribe = <T extends Lengthy>(element: T) => {
 console.log(countAndDescribe('Hi there!'));
 console.log(countAndDescribe([1, 2]));
 console.log(countAndDescribe(''));
+
+// keyof constraint
+const extractAndConvert = <T, U extends keyof T>(element: T, key: U) => {
+	return 'Value ' + element[key];
+};
+
+console.log(extractAndConvert({ name: 'Hasibullah' }, 'name'));
