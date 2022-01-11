@@ -22,3 +22,22 @@ stringStorage.addItem('Safiullah');
 stringStorage.removeItem('Hasibullah');
 
 console.log(stringStorage.getData());
+
+// 'Partial' utility types
+interface CourseGoal {
+	title: string;
+	description: string;
+	untilDate: Date;
+}
+
+const createCourseGoal = (title: string, description: string, untilDate: Date): CourseGoal => {
+	let courseGoal: Partial<CourseGoal> = {};
+	courseGoal.title = title;
+	courseGoal.description = description;
+	courseGoal.untilDate = untilDate;
+	return courseGoal as CourseGoal;
+};
+
+// 'Readonly' utility type
+const ourNames: Readonly<string>[] = ['Hasibullah', 'Safiullah'];
+// ourNames.push('Rahmatullah');
